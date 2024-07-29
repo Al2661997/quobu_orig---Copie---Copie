@@ -1,0 +1,16 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+{{reponses.count}} Reponses:
+
+{% for i in reponses %}
+<li style="margin-left: 20px;"> Réponse par <small style="font-size: large;font-weight: bold;">@{{i.auteur}}</small> -- {{i}}</li>
+{% for like in i.likes.all %}
+{{like.likes}} {% endfor %}
+mentions 
+  <a href="{% url 'j_aime' i.body %}" style="color: black; font-weight: bold;">J'aime👍</a> ________
+{% for like in i.likes.all %}
+{{like.dislikes}} {% endfor %} mentions <a href="{% url 'je_n_aime_pas' i.body %}" style="color: black; font-weight: bold;">Je n'aime pas👎</a> 
+
+{% endfor %}
+{% endblock %}

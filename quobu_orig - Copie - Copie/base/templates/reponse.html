@@ -1,0 +1,14 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="auteur">auteur</label>
+    <input type="text" name = "auteur" id="auteur">
+
+    <label for="reponse">reponse</label>
+    <textarea name="reponse" id="reponse" cols="30" rows="10"></textarea>
+    <input type="submit" value="Envoyer la reponse">
+</form>
+{% endblock %}
